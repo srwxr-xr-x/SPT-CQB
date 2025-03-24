@@ -9,11 +9,11 @@ A WIP, CQB mod for Single Player Tarkov and FIKA
 ---
 
 ## Features:
-    - **Tapping limbs to inform the player that you are ready.**
-    - **Follow Close behind player, interact with a player's shoulder to follow on that side with your weapon, to help clear.**
+- **Tapping limbs to inform the player that you are ready.**
+- **Follow Close behind player, interact with a player's shoulder to follow on that side with your weapon, to help clear.**
     
 ## Planned Features
-    - **Better tapping system, bounce camera slightly to signify rather than a notification (WIP)**
+- **Better tapping system, bounce camera slightly to signify rather than a notification (WIP)**
     
 ## Installation
     
