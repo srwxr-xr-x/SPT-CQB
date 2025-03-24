@@ -22,7 +22,7 @@ The mod should not be under the path *SPTLocation/BepInEx/plugins/CQB.dll*.
     
 ### Reporting Issues and Bugs
     
-You can report bugs and crashes by opening an issue on our [issue tracker](https://github.com/swrxr-xr-x/spt-cqb/issues).
+You can report bugs and crashes by opening an issue on our [issue tracker](https://github.com/srwxr-xr-x/SPT-CQB/issues).
     
 ### Building with Rider
 
