@@ -17,8 +17,8 @@ A WIP, CQB mod for Single Player Tarkov and FIKA
     
 ## Installation
     
-You will need SPT version 3.11.x installed, and the latest FIKA mod installed as well. Unzip and drag the mod into the root of your SPT install, where the EXE is located.
-The mod should not be under the path "SPTLocation/BepInEx/plugins/CQB.dll".
+You will need **SPT version 3.11.x** installed, and the latest FIKA mod installed as well. Unzip and drag the mod into the root of your SPT install, where the EXE is located.
+The mod should not be under the path *SPTLocation/BepInEx/plugins/CQB.dll*.
     
 ### Reporting Issues and Bugs
     
