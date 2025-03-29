@@ -10,7 +10,9 @@
 
 # Binaries
 bin
-
+# References from the DLL folders, can't include these without violating TOS'
+References/*
+#
 .idea/*
 
 # User-specific stuff

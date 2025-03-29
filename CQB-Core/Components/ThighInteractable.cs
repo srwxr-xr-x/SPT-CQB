@@ -1,10 +1,9 @@
 using EFT;
 using EFT.Interactive;
-using Fika.Core.Coop.Players;
-using ShoulderCQB.Common;
-using ShoulderCQB.Fika;
+using CQB.Common;
+using CQB.Fika;
 
-namespace ShoulderCQB.Components;
+namespace CQB.Components;
 
 public class ThighInteractable : InteractableObject
 {
@@ -19,14 +18,14 @@ public class ThighInteractable : InteractableObject
             Utils.MainPlayer.SetInteractInHands(EInteraction.ContainerOpenDefault);
             Utils.MainPlayer.gameObject.GetComponent<GamePlayerOwner>().ClearInteractionState();
             // Lean in direction slightly to simulate tap
-            FikaMethods.SendCQBPacket(Utils.MainPlayer.Id, _targetPlayer.Id, true, 2, 0, true);
+            FikaBridge.SendCQBPacket(Utils.MainPlayer.Id, _targetPlayer.Id, true, 2, 0, true);
         }
         else
         {
             Utils.MainPlayer.SetInteractInHands(EInteraction.ContainerOpenDefault);
             Utils.MainPlayer.gameObject.GetComponent<GamePlayerOwner>().ClearInteractionState(); 
             // Lean in direction slightly to simulate tap
-            FikaMethods.SendCQBPacket(Utils.MainPlayer.Id,_targetPlayer.Id, true, 3, 0, true);
+            FikaBridge.SendCQBPacket(Utils.MainPlayer.Id,_targetPlayer.Id, true, 3, 0, true);
         }
     }
 

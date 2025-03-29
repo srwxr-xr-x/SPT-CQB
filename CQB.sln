@@ -1,6 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoulderCQB", "ShoulderCQB.csproj", "{780DF1D8-D474-489B-9AAA-BD1AD81D91EE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQB-Core", "CQB-Core\CQB-Core.csproj", "{780DF1D8-D474-489B-9AAA-BD1AD81D91EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQB-FikaModule", "CQB-FikaModule\CQB-FikaModule.csproj", "{780DF1D8-D474-489B-9AAA-BD1AD81D91EE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{780DF1D8-D474-489B-9AAA-BD1AD81D91EE} = {780DF1D8-D474-489B-9AAA-BD1AD81D91EE}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

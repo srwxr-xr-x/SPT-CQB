@@ -2,11 +2,10 @@ using System.Linq;
 using System.Reflection;
 using Comfort.Common;
 using EFT;
-using Fika.Core.Networking;
 using SPT.Reflection.Patching;
 using UnityEngine;
 
-namespace ShoulderCQB.Patches;
+namespace CQB.Patches;
 
 public class PatchGameWorldStart : ModulePatch
 {

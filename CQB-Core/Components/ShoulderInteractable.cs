@@ -1,12 +1,11 @@
 using EFT;
 using EFT.Interactive;
 using EFT.InventoryLogic;
-using Fika.Core.Coop.Players;
-using ShoulderCQB.Common;
-using ShoulderCQB.Fika;
+using CQB.Common;
+using CQB.Fika;
 using UnityEngine;
 
-namespace ShoulderCQB.Components;
+namespace CQB.Components;
 
 public class ShoulderInteractable : InteractableObject
 {
@@ -52,7 +51,7 @@ public class ShoulderInteractable : InteractableObject
         // Main player needs to move fast, as fast as possible, based on sqrMagnitude
         // target Player needs to move at half speed
         Utils.MainPlayer.MovementContext.SetCharacterMovementSpeed((heading.sqrMagnitude * 2) * (Utils.MainPlayer.MovementContext.MaxSpeed*2), true);
-        FikaMethods.SendCQBPacket(Utils.MainPlayer.Id, _targetPlayer.Id, false, 0, (Utils.MainPlayer.MovementContext.MaxSpeed/1.75f), false);
+        FikaBridge.SendCQBPacket(Utils.MainPlayer.Id, _targetPlayer.Id, false, 0, (Utils.MainPlayer.MovementContext.MaxSpeed/1.75f), false);
         
         // Cancel out rotation of the player when moving to prevent weird shit happening (literal witchcraft dont ask me)
         Vector3 rotationHandle = Quaternion.Euler(0f, 0f, Utils.MainPlayer.Rotation.x) * heading;
@@ -78,7 +77,7 @@ public class ShoulderInteractable : InteractableObject
         _disableShoulderTap = false;
         _disableHold = false;
         _disableLetGo = true;
-        FikaMethods.SendCQBPacket(Utils.MainPlayer.Id,_targetPlayer.Id,false, 0, Utils.MainPlayer.MovementContext.MaxSpeed, false);
+        FikaBridge.SendCQBPacket(Utils.MainPlayer.Id,_targetPlayer.Id,false, 0, Utils.MainPlayer.MovementContext.MaxSpeed, false);
         Utils.MainPlayer.MovementContext.SetCharacterMovementSpeed(Utils.MainPlayer.MovementContext.MaxSpeed, true);
         
     }
@@ -92,14 +91,14 @@ public class ShoulderInteractable : InteractableObject
             Utils.MainPlayer.SetInteractInHands(EInteraction.ContainerOpenDefault);
             Utils.MainPlayer.gameObject.GetComponent<GamePlayerOwner>().ClearInteractionState();
             // Lean in direction slightly to simulate tap
-            FikaMethods.SendCQBPacket(Utils.MainPlayer.Id,_targetPlayer.Id,true, 0, 0, true);
+            FikaBridge.SendCQBPacket(Utils.MainPlayer.Id,_targetPlayer.Id,true, 0, 0, true);
         }
         else
         {
             Utils.MainPlayer.SetInteractInHands(EInteraction.ContainerOpenDefault);
             Utils.MainPlayer.gameObject.GetComponent<GamePlayerOwner>().ClearInteractionState(); 
             // Lean in direction slightly to simulate tap
-            FikaMethods.SendCQBPacket(Utils.MainPlayer.Id,_targetPlayer.Id,true, 1, 0, true);
+            FikaBridge.SendCQBPacket(Utils.MainPlayer.Id,_targetPlayer.Id,true, 1, 0, true);
         }
     }
     

@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CQB")]
+[assembly: AssemblyTitle("CQB-FikaModule")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("CQB")]
+[assembly: AssemblyProduct("CQB-FikaModule")]
 [assembly: AssemblyCopyright("Copyright © Lillian 2025")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("780DF1D8-D474-489B-9AAA-BD1AD81D91EE")]
+[assembly: Guid("7E8ABF4B-B4CF-49E4-B630-3678E3F093A4")]
 
 // Version information for an assembly consists of the following four values:
 //

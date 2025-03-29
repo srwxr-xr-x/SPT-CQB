@@ -1,6 +1,6 @@
 using EFT;
 
-namespace ShoulderCQB.Common;
+namespace CQB.Common;
 
 public class Utils
 {

@@ -1,10 +1,10 @@
 using System.Reflection;
 using EFT;
 using HarmonyLib;
-using ShoulderCQB.Components;
+using CQB.Components;
 using SPT.Reflection.Patching;
 
-namespace ShoulderCQB.Patches;
+namespace CQB.Patches;
 
 public class PatchAvailableActions : ModulePatch
 {
@@ -24,7 +24,6 @@ public class PatchAvailableActions : ModulePatch
             __result = newResult;
             return false;
         }
-
         if (interactive is ThighInteractable)
         {
             ThighInteractable thigh = interactive as ThighInteractable;
@@ -32,7 +31,21 @@ public class PatchAvailableActions : ModulePatch
             __result = newResult;
             return false;
         }
-
+        if (interactive is HostageInteractable)
+        {
+            HostageInteractable hostage = interactive as HostageInteractable;
+            ActionsReturnClass newResult = hostage.GetActions();
+            __result = newResult;
+            return false;
+        }
+        if (interactive is TakedownInteractable)
+        {
+            TakedownInteractable takedown = interactive as TakedownInteractable;
+            ActionsReturnClass newResult = takedown.GetActions();
+            __result = newResult;
+            return false;
+        }
+        
         return true;
     }
 }

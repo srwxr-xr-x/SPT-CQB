@@ -1,15 +1,15 @@
 using Comfort.Common;
+using CQB.FikaModule.Packets;
 using EFT;
 using EFT.Communications;
 using Fika.Core.Coop.Components;
-using Fika.Core.Coop.Players;
+using Fika.Core.Modding;
 using Fika.Core.Modding.Events;
 using Fika.Core.Networking;
 using LiteNetLib;
-using ShoulderCQB.Common;
 using UnityEngine;
 
-namespace ShoulderCQB.Fika;
+namespace CQB.FikaModule.Common;
 
 public class FikaMethods
 {
@@ -17,7 +17,11 @@ public class FikaMethods
     {
         managerCreatedEvent.Manager.RegisterPacket<CQBPacket>(CQBPacketReceived);
     }
-
+    public static void InitOnPluginEnabled()
+    {
+        FikaEventDispatcher.SubscribeEvent<FikaNetworkManagerCreatedEvent>(OnFikaNetManagerCreated);
+    }
+    
     public static void SendCQBPacket(int sender, int receiver, bool tapPlayer, int tapLocation, float setMovementSpeed, bool sprintEnable)
     {
         CQBPacket packet = new()
@@ -37,18 +41,20 @@ public class FikaMethods
     }
     private static void CQBPacketReceived(CQBPacket packet)
     {
+        
         CoopHandler.TryGetCoopHandler(out CoopHandler coopHandler);
         
-        if (Utils.MainPlayer == coopHandler.Players[packet.ReceiverID])
+        if (Singleton<GameWorld>.Instance.MainPlayer == coopHandler.Players[packet.ReceiverID])
         {
             if (packet.SprintEnable == false)
             {
-                Utils.MainPlayer.Physical.Sprint(false);
+                Plugin.LogSource.LogInfo(Singleton<GameWorld>.Instance.MainPlayer);
+                Singleton<GameWorld>.Instance.MainPlayer.ActiveHealthController.AddFatigue();
+                Singleton<GameWorld>.Instance.MainPlayer.ActiveHealthController.SetStaminaCoeff(0f);
             }
-
             if (packet.SetMovementSpeed != 0)
             {
-                Utils.MainPlayer.MovementContext.SetCharacterMovementSpeed(packet.SetMovementSpeed, true);
+                Singleton<GameWorld>.Instance.MainPlayer.Physical.WalkSpeedLimit = packet.SetMovementSpeed;
             }
 
             if (packet.TapPlayer)
@@ -85,4 +91,4 @@ public class FikaMethods
             }
         }
     }
-}
+} 

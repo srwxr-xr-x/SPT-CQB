@@ -1,7 +1,6 @@
-using EFT;
 using LiteNetLib.Utils;
 
-namespace ShoulderCQB.Fika;
+namespace CQB.FikaModule.Packets;
 
 public struct CQBPacket : INetSerializable
 {
